@@ -1,0 +1,35 @@
+#Concatenate six subunits into one supergene
+
+import json
+from os.path import join
+import gzip
+import os
+from Bio import SeqIO, Seq, SeqRecord
+
+with open("six_complete.json") as handle:
+    dd = json.load(handle)
+dd = { k : v.split(";") for k,v in dd.items()}
+
+subunits =  ['a','b','c','d','e','g']
+
+seq_dict = {}
+id2unit = {}
+for unit in subunits:
+    seq_dict[unit] = {}
+    with open("new_rnf"+unit+".fasta") as handle:
+        for seq in SeqIO.parse(handle,"fasta"):
+            seq_id = "_".join(seq.id.split("_")[0:2])
+            seq_dict[unit][seq_id] = seq.seq
+            id2unit[seq_id] = unit
+
+dd_units ={}
+for genome_id, id_list in dd.items():
+    dd_units[genome_id] = {}
+    for protein_id in id_list:
+        dd_units[genome_id][id2unit.get(protein_id)] = protein_id
+
+
+
+concatenates = [SeqRecord.SeqRecord(seq=Seq.Seq("".join([str(seq_dict[unit][v[unit]]) for unit in subunits])), id=k) for k,v in dd_units.items()]
+with open("concatenated_rnfs.fasta", 'w') as handle:
+    SeqIO.write(concatenates, handle, "fasta")
