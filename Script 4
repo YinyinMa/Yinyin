@@ -7,7 +7,7 @@ with open('Assembly database') as handle:
 
 rnf_dd = {}
 
-for s in ['a','b','c','d','e','g']:
+for s in ['a','b','c','d','e','g']: #Open each subunit file containing information of amino acid accession number and their corresponding assembly number
     with open('rnf' + s +"_mft") as handle:
         rnf_dd[s] = set([l.strip() for l in handle])
 
@@ -34,3 +34,47 @@ genome_map_derep = {v[0] : k for k, v in operon_dd.items()}
 
 with open("six_subunit_complete.json","w") as handle:
     json.dump(genome_map_derep,handle, sort_keys= True, indent = 4)
+
+#Parse the genome obtained above and obtain the starting/ending position and the product name for each subunits 
+
+import json
+from os.path import join
+import gzip
+import os
+with open("six_subunit_complete.json") as handle:
+    dd = json.load(handle)
+
+print('parsing genome folder')
+raw_path = 'The path to the raw database'
+big_list = [[(ll,f) for ll in os.listdir(join(raw_path,'genomes', f))] for f in os.listdir(join(raw_path,'genomes'))]
+big_dict = dict(sum(big_list,[]))
+
+print('starting to parse gff-file') # It's better to know the process
+output = []
+for genome, genes in dd.items():
+    print(genome)
+    genes = set(genes.split(';'))
+
+    gff_path = join(raw_path, 'genomes', big_dict[genome], genome, genome + '.gff.gz')
+
+    with gzip.open(gff_path) as handle:
+        recs = handle.readlines()
+
+        recs = [r.decode() for r in recs if "CDS" in r.decode()] # 
+        recs = [ r.split('\t') for r in recs ]
+        for r in recs :
+            r[-1] = r[-1].strip().split(';')
+            r[-1] = {e.split('=')[0] : e.split('=')[1] for e in r[-1]}
+
+        sub_recs = [r for r in recs if r[-1].get('Name') and r[-1]['Name'] in genes]
+    output.append(["{genome},{ID},{product},{start},{end},{dir}\n".format(genome=genome,ID=r[-1]['Name'], start =int(r[3]), end =int(r[4]), dir=r[6]) for r in  sub_recs])
+#Retrieve information including "genome name", "protein product name", "starting position" and "ending position"
+
+with open('feature_rnf_file.csv','w') as handle:
+    handle.writelines(sum(output,[]))
+
+
+
+
+
+
