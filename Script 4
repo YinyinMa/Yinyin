@@ -1,0 +1,36 @@
+#To get genomes containing six subunits at the same time
+
+import json
+
+with open('Assembly database') as handle:
+    dd = { l.split(',')[0] : set(l[:-1].split(',')[1].split(";")) for l in handle}
+
+rnf_dd = {}
+
+for s in ['a','b','c','d','e','g']:
+    with open('rnf' + s +"_mft") as handle:
+        rnf_dd[s] = set([l.strip() for l in handle])
+
+
+full_genomes = {k :list(set(sum([list(dd[prot]) for prot in v if dd.get(prot)],[]))) for k,v in rnf_dd.items() }
+
+full_ops = set(list(full_genomes.values())[0]).intersection(*list(full_genomes.values())[1:])
+
+full_ops = list(full_ops)
+
+genome_map = { genome : [] for genome  in full_ops}
+all_twelve = set(sum([list(f) for f in rnf_dd.values()],[]))
+for k,l in dd.items():
+    if k in all_twelve :
+        for genome in list(l) :
+            if genome_map.get(genome) != None:
+                genome_map[genome].append(k)
+
+genome_map_strs = { k : ";".join(sorted(v)) for k,v in genome_map.items()}
+
+good_operons = set([v for v in genome_map_strs.values() if len(v) == 89 ])     #select genomes containing 6 subunits
+operon_dd = {op : [g for g, opop in genome_map_strs.items() if opop == op] for op in good_operons}
+genome_map_derep = {v[0] : k for k, v in operon_dd.items()}
+
+with open("six_subunit_complete.json","w") as handle:
+    json.dump(genome_map_derep,handle, sort_keys= True, indent = 4)
