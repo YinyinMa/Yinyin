@@ -1,4 +1,4 @@
-# Modify the branch name of supergene phylogenetic tree.
+# Modify the branch name of supergene phylogenetic tree for the convenience of analysis
 
 from ftplib import FTP
 from os.path import join as pjoin
@@ -46,8 +46,146 @@ with open("raxml.tree") as handle:
             ete_tree = Tree(handle.readlines()[0][:-1])
             for l in ete_tree.get_leaves():
               if l.name.startswith("GCF") and l.name != "GCF_001684435.1":
-                l.name = l.name+ "|" + get_tax_list(metadata.loc [l.name]['taxid'])
+                l.name = l.name+ "|" + get_tax_list(metadata.loc [l.name]['taxid']) ### Rename the branch starting with "Assembly number", followed by taxonomy
 print(ete_tree)
 ete_tree.write()
 with open("renamed_raxml.tree", "w") as handle:
     handle.writelines([ete_tree.write() + "\n"])
+
+#########Template modification 
+
+## Tree rendering in iTOL
+from ete3 import Tree, TreeStyle, NodeStyle
+
+with open("renamed_raxml.tree") as handle:
+    t = Tree(handle.readline())
+
+all_phyla = set([leaf.name.split("_")[2] for leaf in t.get_leaves()])
+right_order_phyla = list(all_phyla)
+right_order_phyla.sort()
+cols = ["#fdb462","#a6cee3","#54278f",
+"#b2df8a","#737373","#ffffb3",
+"#fb8072","#fb9a99","#fccde5",
+"#ffed6f","#d9d9d9","#33a02c",
+"#8dd3c7","#e31a1c","#ff7f00",
+"#b3de69","#fb8072","#ccebc5",
+"#bebada","#bc80bd","#fdbf6f"] ## Group different microbial taxa with different colors
+
+colors = {a[0] : a[1] for a in zip(right_order_phyla,cols)} ## Distribute each taxa with one distinguishable color
+
+with open("tree_itol.txt","w") as handle:
+    handle.writelines([leaf.name + " " + "range " + colors[leaf.name.split("|")[1].split("_")[0]] + " " + leaf.name.split("|")[1].split("_")[0] + "\n" for leaf in t.get_leaves()])
+
+## Modify the metabolism template
+
+from ete3 import Tree, TreeStyle, NodeStyle
+with open("renamed_raxml.tree") as handle:
+    t = Tree(handle.readline())
+leaf_name = [l.name.split("|")[1] for l in t.get_leaves()]
+
+aerobes = []
+aerobes.extend(["Flavobacteriales", "Saprospirales", "Sphingobacteriales", "Acidithiobacillales", "Sphingomonadales", "Acidiferrobacterales", "Nitrospirales", "Phycisphaerae", "Cellvibrionales", "Methylococcales", "Thiotrichales", "Zetaproteobacteria", "Verrucomicrobiae"])
+
+facultative_anaerobes = []
+facultative_anaerobes.extend(["Mariprofundales", "Vibrionales", "Pseudomonadales", "Pasteurellales", "Oceanospirillales", "Enterobacterales", "Cardiobacteriales", "Alteromonadales", "Limnochordales", "Bacteroidales", "Marinilabiliales", "Cytophagales"])
+
+order = list(set([l.split("_")[-1] for l in leaf_name]))
+inter = aerobes+facultative_anaerobes
+anaerobes = list(set(order).difference(set(inter)))
+
+name = [l for l in t.get_leaf_names()]
+
+with open("Metabolism_itol.txt", "w") as handle:
+    for l in name:
+        if l.split("|")[1].split("_")[-1] in aerobes:
+            handle.writelines(l +" "+"#d9d9d9" + " "+"aerobes"+ "\n")   #### Select different colors to represent microbial groups with different metabolism
+    for l1 in name:
+        if l1.split("|")[1].split("_")[-1] in facultative_anaerobes:
+            handle.writelines(l1 + " " +"#969696"+ " "+"facultative_anaerobes"+"\n")
+    for l2 in name:
+        if l2.split("|")[1].split("_")[-1] in anaerobes:
+            handle.writelines(l2 + " " + "#525252"+ " "+"anaerobes"+ "\n")
+
+
+##Modify the subunit order template
+
+from ete3 import Tree, TreeStyle, NodeStyle
+with open("renamed_raxml.tree") as handle:
+    t = Tree(handle.readline())
+name = [l for l in t.get_leaf_names()]
+leaf_name = [l.name.split("|")[1] for l in t.get_leaves()]
+uniq_class = list(set(leaf_name))
+
+rnfABCDGE = []
+for l in uniq_class:
+    if l.startswith("Proteobacteria") and l != "Proteobacteria_Deltaproteobacteria_Desulfovibrionales" and l != "Proteobacteria_Gammaproteobacteria_Acidiferrobacterales":
+        rnfABCDGE.append(l)
+rnfABCDGE.append("Bacteroidetes_Sphingobacteriia_Sphingobacteriales")
+
+rnfBCDGEA = []
+rnfBCDGEA.extend(["Bacteroidetes_Flavobacteriia_Flavobacteriales","Bacteroidetes_Bacteroidia_Bacteroidales","Bacteroidetes_Bacteroidia_Marinilabiliales","Bacteroidetes_Cytophagia_Cytophagales","Calditrichaeota_Calditrichae_Calditrichales","Chlorobi_Chlorobia_Chlorobiales","Spirochaetes_Spirochaetia_Spirochaetales","Verrucomicrobia_Verrucomicrobiae"])
+intermediate = rnfABCDGE + rnfBCDGEA
+
+rnfCDGEAB = list(set(uniq_class).difference(set(intermediate)))
+
+name = [l for l in t.get_leaf_names()]
+with open("rnf_order_itol.txt", "w") as handle:
+    for l in name:
+        if l.split("|")[1] in rnfABCDGE:
+            handle.writelines(l +" "+"#2171b5" + " "+"rnfABCDGE"+ "\n") 
+    for l1 in name:
+        if l1.split("|")[1] in rnfBCDGEA:
+            handle.writelines(l1 + " " +"#6baed6"+ " "+"rnfBCDGEA"+"\n")
+    for l2 in name:
+        if l2.split("|")[1] in rnfCDGEAB:
+            handle.writelines(l2 + " " + "#c6dbef"+ " "+"rnfCDGEAB"+ "\n")
+###The generated txt file was redirected to the "dataset_color_strip_template.txt" from ITOL.
+
+##Use colored strips to denote the neighbourhood gene in Proteobacteria
+Endonuclease_III = []
+for l in uniq_class:
+    if l.startswith("Proteobacteria_Gammaproteobacteria_") and l != "Proteobacteria_Gammaproteobacteria_Acidiferrobacterales" and l != "Proteobacteria_Gammaproteobacteria_Cellvibrionales" and  l != "Proteobacteria_Gammaproteobacteria_Methylococcales" :
+        III.append(l)
+Endonuclease_III.extend(["Bacteroidetes_Sphingobacteriia_Sphingobacteriales","Proteobacteria_Acidithiobacillia_Acidithiobacillales",
+])
+rnfH = []
+rnfH.extend(["Proteobacteria_Alphaproteobacteria_Rhizobiales","Proteobacteria_Alphaproteobacteria_Rhodobacterales",
+"Proteobacteria_Alphaproteobacteria_Rhodospirillales","Proteobacteria_Alphaproteobacteria_Sphingomonadales",
+"Proteobacteria_Gammaproteobacteria_Methylococcales"]) 
+
+with open("Neighbourhood_gene_itol.txt", "w") as handle:
+    for l1 in name:
+        if l1.split("|")[1] in Endonuclease_III:
+            handle.writelines(l1 + " " + "#ffed6f" + " " + "Endonuclease III" + "\n")
+    for l2 in name:
+        if l2.split("|")[1] in rnfH:
+            handle.writelines(l2 + " " + "#a6cee3" + " " + "RnfH" + "\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
