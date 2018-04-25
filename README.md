@@ -1,4 +1,3 @@
-# Yinyin
-Master thesis
-Script 1 : Blastp for six subunits performed at Uppsala Multidisciplinary Center for Advanced Computational Science (UPPMAX). 
-Script 2 : 
+####
+All the scripts provided here were used for data retrieving in master thesis "Distribution, diversity and evolution of rnf complex in bacteria". 
+
