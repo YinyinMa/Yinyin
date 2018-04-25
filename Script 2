@@ -1,0 +1,17 @@
+
+#Script is run in Python 3.6.0
+
+from Bio import Entrez
+from Bio import SeqIO
+import sys
+orig_stdout = sys.stdout
+f = open("output_file_name","w")
+sys.stdout = f
+Entrez.email = "email address"
+blast = open("input_accession_number").read()
+handle = Entrez.efetch(db="protein", id= blast, rettype="gb")
+print(handle.read())
+sys.stdout = orig_stdout
+f.close()
+
+#The "input_accession_number" contains all the amino acid accession number retrieved from blastp 
