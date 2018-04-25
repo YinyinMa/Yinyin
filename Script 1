@@ -1,0 +1,13 @@
+#!/bin/bash -l
+#SBATCH -A Project name
+#SBATCH -p core
+#SBATCH -n 16
+#SBATCH -t 06:00:00
+#SBATCH -J 
+#SBATCH -e
+#SBATCH -o 
+module load bioinfo-tools
+module load blast/2.2.31+ 
+blastp -db /sw/data/uppnex/blast_databases/refseq_protein -query input.fasta -out output_file -evalue 1e-10 -outfmt '6 sseqid staxid evalue slen'
+
+#The output file includes accession number, expect value and sequence length
