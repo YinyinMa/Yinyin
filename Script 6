@@ -1,0 +1,53 @@
+# Modify the branch name of supergene phylogenetic tree.
+
+from ftplib import FTP
+from os.path import join as pjoin
+import os
+from tqdm import tqdm
+from pandas import DataFrame
+import multiprocessing
+import shutil
+from subprocess import call, check_output
+import signal
+from io import StringIO,BytesIO
+from collections import defaultdict
+import gzip
+
+ncbi = "ftp.ncbi.nlm.nih.gov"
+num_cores = 4
+ftp =  FTP(ncbi)
+data_path = "genomes"
+if not os.path.exists(data_path) :
+    os.makedirs(data_path)
+print("Getting metadata from ncbi")
+FNULL = open(os.devnull, 'w')
+ftp.login()
+ftp.cwd('genomes/refseq/bacteria/')
+info = BytesIO()
+ftp.retrbinary("RETR " + "assembly_summary.txt", info.write)
+info.seek(0)
+metadata = DataFrame.from_csv(info, sep="\t", header=1)
+ftp.close()
+metadata['assembly_level'] = metadata['assembly_level'].apply(lambda x: x.replace(" ","_"))
+metadata
+metadata.columns
+metadata['taxid']
+from ete3 import NCBITaxa
+taxDb = NCBITaxa()
+ranks = ['phylum','class','order']   #Extract unit "Phylum", "class" and "order"
+def get_tax_list(taxid):
+    rank = taxDb.get_rank(taxDb.get_lineage(taxid))
+    taxa = taxDb.get_taxid_translator(taxDb.get_lineage(taxid))
+    dd = {rank[k] : taxa[k] for k in rank}
+    return "_".join([dd[r].replace(" ","_") for r in ranks if dd.get(r)])
+
+from ete3 import Tree
+with open("raxml.tree") as handle:
+            ete_tree = Tree(handle.readlines()[0][:-1])
+            for l in ete_tree.get_leaves():
+              if l.name.startswith("GCF") and l.name != "GCF_001684435.1":
+                l.name = l.name+ "|" + get_tax_list(metadata.loc [l.name]['taxid'])
+print(ete_tree)
+ete_tree.write()
+with open("renamed_raxml.tree", "w") as handle:
+    handle.writelines([ete_tree.write() + "\n"])
