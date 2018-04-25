@@ -1,0 +1,5 @@
+# This script is run for format conversion from fasta to GenBank using in Python 3.6.0
+
+from Bio import SeqIO
+count = SeqIO.convert("output_from_script 2", "genbank", "output_from_script 2.fasta", "fasta")
+print("Converted %i records" % count)
