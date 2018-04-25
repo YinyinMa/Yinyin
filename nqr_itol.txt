@@ -1,0 +1,607 @@
+DATASET_COLORSTRIP
+#In colored strip datasets, each ID is associated to a color box/strip and can have an optional label. Color can be specified in hexadecimal, RGB or RGBA notation. When using RGB or RGBA notation, you cannot use COMMA as the dataset separator
+
+#lines starting with a hash are comments and ignored during parsing
+
+#=================================================================#
+#                    MANDATORY SETTINGS                           #
+#=================================================================#
+#select the separator which is used to delimit the data below (TAB,SPACE or COMMA).This separator must be used throughout this file (except in the SEPARATOR line, which uses space).
+
+#SEPARATOR TAB
+#SEPARATOR COMMA
+SEPARATOR SPACE
+
+#label is used in the legend table (can be changed later)
+DATASET_LABEL label1
+
+#dataset color (can be changed later)
+COLOR #7fcdbb
+
+#=================================================================#
+#                    OPTIONAL SETTINGS                            #
+#=================================================================#
+
+#If COLOR_BRANCHES is set to 1, branches of the tree will be colored according to the colors of the strips above the leaves.
+#When all children of a node have the same color, it will be colored the same, ie. the color will propagate inwards towards the root.
+COLOR_BRANCHES 0
+
+#each dataset can have a legend, which is defined below
+#for each row in the legend, there should be one shape, color and label
+#shape should be a number between 1 and 6:
+#1: square
+#2: circle
+#3: star
+#4: right pointing triangle
+#5: left pointing triangle
+#6: checkmark
+
+LEGEND_TITLE Dataset_legend
+LEGEND_SHAPES 1 1 2 2
+LEGEND_COLORS #ff0000 #00ff00 rgba(0,255,0,0.5) #0000ff
+LEGEND_LABELS value1 value2 value3 value4
+
+#=================================================================#
+#     all other optional settings can be set or changed later     #
+#           in the web interface (under 'Datasets' tab)           #
+#=================================================================#
+
+#width of the colored strip
+STRIP_WIDTH 35
+
+#left margin, used to increase/decrease the spacing to the next dataset. Can be negative, causing datasets to overlap.
+#MARGIN 0
+
+#border width; if set above 0, a border of specified width (in pixels) will be drawn around the color strip 
+#BORDER_WIDTH 0
+
+#border color; used when BORDER_WIDTH is above 0
+#BORDER_COLOR #0000ff
+
+#always show internal values; if set, values associated to internal nodes will be displayed even if these nodes are not collapsed. It could cause overlapping in the dataset display.
+#SHOW_INTERNAL 0
+
+
+#Internal tree nodes can be specified using IDs directly, or using the 'last common ancestor' method described in iTOL help pages
+
+#=================================================================#
+#       Actual data follows after the "DATA" keyword              #
+#=================================================================#
+DATA
+
+#Examples:
+#assign a red colored strip to leaf 9606, with label 'Human' (label is displayed in the mouseover popups)
+
+GCF_000685925.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_000384075.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_002209385.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_001644015.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_000214665.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_001644025.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_001644115.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_001644095.1|Proteobacteria_Gammaproteobacteria_Methylococcales #a8ddb5 nqr
+GCF_002845745.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_001650635.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_000342045.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_001650715.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_900108475.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_000218875.1|Proteobacteria_Alphaproteobacteria_Sphingomonadales #a8ddb5 nqr
+GCF_000498655.1|Proteobacteria_Alphaproteobacteria_Sphingomonadales #a8ddb5 nqr
+GCF_000960975.1|Proteobacteria_Alphaproteobacteria_Rhizobiales #a8ddb5 nqr
+GCF_900115225.1|Proteobacteria_Alphaproteobacteria_Rhizobiales #a8ddb5 nqr
+GCF_900215505.1|Proteobacteria_Alphaproteobacteria_Rhizobiales #a8ddb5 nqr
+GCF_002285435.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900112335.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_001509585.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900142935.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_002079305.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900217815.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900156655.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900217755.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900188265.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_000016405.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900207575.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_000506525.2|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_001402725.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_002814095.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_001687105.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_900116195.1|Proteobacteria_Alphaproteobacteria_Rhodobacterales #a8ddb5 nqr
+GCF_001746755.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_000968135.1|Proteobacteria_Alphaproteobacteria_Rhodospirillales #a8ddb5 nqr
+GCF_900100455.1|Proteobacteria_Alphaproteobacteria_Rhizobiales #a8ddb5 nqr
+GCF_000376785.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_002863865.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_000691225.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_900107855.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_001995095.2|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_000422865.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_001562015.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_000428585.1|Proteobacteria_Gammaproteobacteria_Oceanospirillales #a8ddb5 nqr
+GCF_900105005.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000939975.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_001449865.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000955805.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000349845.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_900099785.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_900099945.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000689415.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_001446935.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000798915.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000297075.2|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_002037565.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000016565.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_900119125.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_900103725.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000465935.2|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_002286725.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_002091635.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_000263395.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_002891015.1|Proteobacteria_Gammaproteobacteria_Pseudomonadales #a8ddb5 nqr
+GCF_900100355.1|Proteobacteria_Gammaproteobacteria_Cellvibrionales #a8ddb5 nqr
+GCF_001617625.1|Proteobacteria_Gammaproteobacteria_Cellvibrionales #a8ddb5 nqr
+GCF_000820125.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_000819955.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001634325.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_002843345.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001908535.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001647435.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_000401555.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_900156325.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001535585.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001705905.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_001684435.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_002242685.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_000243075.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_000381965.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_002245495.1|Proteobacteria_Gammaproteobacteria_Aeromonadales #a8ddb5 nqr
+GCF_002157755.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001650345.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001939735.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001655635.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000972145.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000425165.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002142615.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001707815.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000176795.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002218045.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002218005.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002157735.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001639065.2|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002214345.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002358135.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000733315.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002874415.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002873195.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002873335.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002872635.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000400265.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002849855.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002894965.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001679745.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000153505.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000024825.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001707995.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001728095.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000707185.2|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001728465.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001728505.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001727195.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001726915.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001609015.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001727975.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001727365.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001727465.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000830505.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001591145.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000017705.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000400325.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000818715.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002214395.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000818275.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000967545.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002811245.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000711795.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001591105.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001297935.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000772065.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000740665.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002742585.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001957165.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000808535.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000816475.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000189275.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001939725.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001939685.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_900162645.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_900163915.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001267945.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002241155.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001718015.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000287115.2|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000257205.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000798995.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001857515.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000305115.2|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001857165.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002284415.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002283835.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000176715.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001471395.2|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000736945.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000736775.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002284355.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002284265.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000736765.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002196155.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000237445.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001860465.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001281595.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000387705.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000174255.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001517855.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001254955.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000799015.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001418705.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002796765.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000931495.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001598835.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000176155.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000467125.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_000467185.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_001675945.1|Proteobacteria_Gammaproteobacteria_Vibrionales #a8ddb5 nqr
+GCF_002093895.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000800945.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000196155.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001684335.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001010285.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002632825.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000330385.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000624595.2|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000280155.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000968895.2|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002895205.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002099965.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002514855.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000191015.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900195935.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002156555.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002517145.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001616345.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900195705.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002456615.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000713585.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002456735.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001637845.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000759835.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001463265.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900112055.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000809165.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001682915.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000958305.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001699035.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000710855.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001033615.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000567125.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900085095.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001455225.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900083755.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001723565.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002761975.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000276705.2|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002290285.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_001317245.2|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002853055.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002250015.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000814905.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000958895.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002510275.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002510255.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900100995.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_900119515.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_002003685.1|Bacteroidetes_Sphingobacteriia_Sphingobacteriales #a8ddb5 nqr
+GCF_000759795.1|Proteobacteria_Gammaproteobacteria_Enterobacterales #a8ddb5 nqr
+GCF_000287615.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000238795.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002002485.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002015115.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002015125.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000163475.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000973525.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001064415.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002850605.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000413135.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000973565.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002024005.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001929595.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000412035.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000412075.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002750755.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002900115.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000478235.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001998905.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001076115.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001298185.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001076835.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000165525.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001949855.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_900022485.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_900035535.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001276515.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001679135.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001008225.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001008275.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001999305.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001999285.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000545.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000425.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001998965.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000145.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000485.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000505.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002000435.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001998675.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001998725.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001998595.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001055095.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001949885.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001810545.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001058435.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001053575.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001059815.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001057005.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_900186995.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001262035.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001680805.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000231255.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002083125.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000226495.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000466335.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000185305.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001059425.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001596235.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001596425.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000226755.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001596315.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000226855.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000226815.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000318155.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000332915.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001594265.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000226715.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000017245.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000262245.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000940515.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_900101275.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000007745.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002263215.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000751835.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000752995.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000827595.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002015075.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002162195.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001931415.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001930825.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000969315.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000969305.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000348525.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_002795405.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_900176075.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000772535.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001678475.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001678635.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001678545.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001678495.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000772365.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000771935.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000464615.2|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000772275.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_000771915.1|Proteobacteria_Gammaproteobacteria_Pasteurellales #a8ddb5 nqr
+GCF_001399975.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000238375.2|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001662245.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001661495.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_002156545.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_002276045.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001269985.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_900108485.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000296695.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_001752395.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_001704375.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000272005.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001441695.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_900215315.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000987775.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000987765.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_001275035.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000217935.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_001669775.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000711985.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000374485.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000767305.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000314975.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001660395.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000730385.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000213655.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001885075.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_001886435.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000439535.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000020585.3|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_002807665.1|Proteobacteria_Gammaproteobacteria_Alteromonadales #a8ddb5 nqr
+GCF_000419525.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_000621325.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_002443175.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_002088235.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000740735.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000024725.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_900114205.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_000156355.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_000260985.4|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_000260965.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_000349205.1|Proteobacteria_Gammaproteobacteria_Thiotrichales #a8ddb5 nqr
+GCF_900156225.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000377945.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000378965.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000321415.2|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000381825.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000420165.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000377785.1|Proteobacteria_Gammaproteobacteria_Chromatiales #a8ddb5 nqr
+GCF_000759025.1|Bacteroidetes_Saprospiria_Saprospirales #a8ddb5 nqr
+GCF_001192835.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001443605.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000949475.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_900141875.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_900129025.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_001270045.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900113005.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_900091675.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000832075.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900091655.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000190535.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000803105.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000473955.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001688845.2|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000296465.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002161555.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002529155.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000768955.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000565015.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000467855.2|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000768875.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000769075.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000769035.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000174815.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000769135.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001552775.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000183605.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000372405.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000379925.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001808555.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900120395.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000766005.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000765975.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002849245.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001282625.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900107785.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900116745.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001717525.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900096735.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001704385.2|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001657625.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900186615.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000156495.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900155425.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000157035.2|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000428565.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000403825.2|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159645.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000499785.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900102645.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001578575.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000466505.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000297695.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001535595.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000940235.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000195635.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000413395.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900104585.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000428125.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000212915.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000375405.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000613805.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000403195.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000157915.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159755.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000190575.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000702225.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000233955.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002251435.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002251245.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000621725.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900100635.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002251295.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900107705.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900107065.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000746155.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900142525.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900110085.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900115435.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900199555.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000613625.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000430525.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002251325.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900111525.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001062315.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000287635.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000613605.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000613965.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000424185.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000426565.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000157935.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900110745.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000160535.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001552765.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000758925.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000518545.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002251365.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001275135.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000833975.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900079775.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000585355.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002843385.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_001310955.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_002210225.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000517065.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_900168165.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000259075.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000220155.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000191885.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_001660705.2|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_001659685.2|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000517085.1|Bacteroidetes_Bacteroidia_Marinilabiliales #a8ddb5 nqr
+GCF_000473305.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159585.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900167925.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900167895.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000786575.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000154465.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159425.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000265365.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_001405655.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159215.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000285455.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000210575.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002159375.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002161005.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900021155.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000311925.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000723505.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900104655.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900240235.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000321205.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000231275.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_900096565.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_000798815.1|Bacteroidetes_Bacteroidia_Bacteroidales #a8ddb5 nqr
+GCF_002807055.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_001310225.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_900116115.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_900188235.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_900188355.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_000153165.2|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_900106565.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_002198115.1|Bacteroidetes_Flavobacteriia_Flavobacteriales #a8ddb5 nqr
+GCF_000379765.1|Bacteroidetes_Cytophagia_Cytophagales #a8ddb5 nqr
+GCF_000020525.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_000020545.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_002240205.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_000020625.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_001687065.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_002113825.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_000012485.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_000016085.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+GCF_001509575.1|Chlorobi_Chlorobia_Chlorobiales #a8ddb5 nqr
+
+
+
+#assign a green, semi-transparent (alpha 0.5) strip to an internal node, without any label. If 'Show internal values' is set to 'No', this will only be displayed if the node is collapsed. 
+#9606|5664 rgba(0,255,0,0.5)
+
